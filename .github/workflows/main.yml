@@ -20,7 +20,7 @@ jobs:
           java-version: '11'
       #finally build your app with the latest command
       - name:  Build  and  test  with  Maven
-        run:  mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=val-duss_tpdevops
+        run:  mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=val-duss_tpdevops  --file java/pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
