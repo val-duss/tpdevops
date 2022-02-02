@@ -20,7 +20,7 @@ jobs:
           java-version: '11'
       #finally build your app with the latest command
       - name:  Build  and  test  with  Maven
-        run:  mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=val-duss_tpdevops  --file java/pom.xml
+        run:  mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=val-duss_tpdevops  --file simple-api/pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -38,7 +38,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           # relative path to the place where source code with Dockerfile is located
-          context: ./java
+          context: ./simple-api
           # Note: tags has to be all lower-case
           tags: ${{secrets.DOCKERHUB_USERNAME}}/java
           push: ${{ github.ref == 'refs/heads/main' }}
