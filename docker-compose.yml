@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  web:
+    container_name: web
+    build: simple-api/simple-api/
+    ports:
+      - 8080:8080
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+  proxy:
+    container_name: proxy
+    build: http/
+    networks: 
+      - app-network
+    ports:
+      - 80:80
+    depends_on:
+      - web 
+  postgres:
+    container_name: postgres
+    build: postgres/
+    networks:
+      - app-network
+      
+networks:
+  app-network:
