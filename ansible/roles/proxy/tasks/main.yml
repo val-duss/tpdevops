@@ -1,0 +1,8 @@
+- name: Création du conteneur pour le proxy
+  docker_container:
+    name: reverse_proxy
+    image: valduss/httpd
+    ports:
+      - "80:80" # On expose le port 80 sur la machine hôte
+    networks:
+      - name: app-network

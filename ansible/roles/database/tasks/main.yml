@@ -1,0 +1,7 @@
+# tasks file for roles/database
+- name: Création du conteneur pour la database
+  docker_container:
+    name: postgres
+    image: valduss/postgres
+    networks:
+      - name: app-network

@@ -23,6 +23,14 @@ services:
     build: postgres/
     networks:
       - app-network
+    volumes:
+      - /devops/postgres/data:/var/lib/postgresql/data
+
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    networks:
+      - app1-network
       
 networks:
   app-network:

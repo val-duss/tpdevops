@@ -1,0 +1,8 @@
+- name: Création du conteneur pour l'app
+  docker_container:
+    name: web
+    image: valduss/java
+    ports:
+      - "8080:8080" # On expose le port 8080 sur la machine hôte
+    networks:
+      - name: app-network

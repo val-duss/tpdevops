@@ -1,0 +1,8 @@
+---
+# tasks file for roles/frontend
+- name: Run_frontend
+    docker_container:
+      name: frontend
+      image: totobo47/frontend
+      networks:
+        - name: app1-network
